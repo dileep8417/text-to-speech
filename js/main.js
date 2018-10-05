@@ -17,7 +17,7 @@ function gettingVoices(){
     voices.forEach(function(voice){
         var opt = document.createElement("option");
         opt.textContent = voice.name +"( "+voice.lang+")";
-        opt.setAttribute("data-name",voice.name);
+        opt.setAttribute("s",voice.name);
         opt.setAttribute("data-lang",voice.lang);
         selectVoice.appendChild(opt);
     });
@@ -43,8 +43,8 @@ if(textInput.value!=null){
     }
 
 }
-var selectedvoice = selectVoice.selectedOptions[0].getAttribute('data-name');
-voices.forEach(function(voice){
+var selectedvoice = selectVoice.value;
+voices.forEach(voice=>{
     if(voice.name===selectedvoice){
         speakText.voice=voice;
     }
